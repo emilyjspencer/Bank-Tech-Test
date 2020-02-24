@@ -54,6 +54,15 @@ describe 'BankAccount' do
       expect(bankaccount.check_balance).to eq 2100
     end
   end 
-  
+
+  describe '#transactions' do
+    it 'shows the total number of transactions made' do
+      bankaccount.withdraw_cash(20)
+      bankaccount.deposit(200)
+      bankaccount.deposit(120)
+      expect(bankaccount.transactions.length).to eq 3
+    end
+  end 
+
 end 
 
