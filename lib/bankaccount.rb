@@ -1,11 +1,12 @@
 class BankAccount
 
-  attr_reader :balance, :debit, :credit
+  attr_reader :balance, :debit, :credit, :time
 
   def initialize
     @balance = 2000
     @debit = 0
     @credit = 0
+    @time = Time.now.strftime("%d/%m/%Y")
   end 
 
   def withdraw_cash(amount)

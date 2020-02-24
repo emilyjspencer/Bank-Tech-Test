@@ -2,6 +2,7 @@ require 'bankaccount'
 
 describe 'BankAccount' do
   let(:bankaccount) { BankAccount.new }
+  let(:time) {Time.now.strftime("%d/%m/%Y")}
 
   before(:each) do
     bankaccount = BankAccount.new
@@ -40,6 +41,10 @@ describe 'BankAccount' do
       bankaccount.deposit(1000)
       bankaccount.deposit(20)
       expect(bankaccount.credit).to eq 2
+    end 
+
+    it 'inputs the date that the deposit was made' do
+      expect(bankaccount.time).to eq time
     end 
   end 
 end 
