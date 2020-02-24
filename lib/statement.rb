@@ -6,9 +6,11 @@ class Statement
   end 
 
   def print_statement
+    bank_statement = "date || credit || debit || balance\n"
     @transactions.each do | transaction |
-      puts transaction
+      bank_statement += transaction + "\n"
     end
+    bank_statement.chomp("\n")
   end 
 
 
