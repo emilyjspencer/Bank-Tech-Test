@@ -16,5 +16,13 @@ describe 'BankAccount' do
       expect(bankaccount.balance).to eq 1800
     end
   end
+
+  describe '#deposit' do
+  it 'allows the account holder to deposit money to their account' do
+    bankaccount = BankAccount.new
+    bankaccount.deposit(250)
+    expect(bankaccount.balance).to eq 2250
+  end
+end 
 end 
 
