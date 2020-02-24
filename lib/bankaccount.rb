@@ -20,5 +20,9 @@ class BankAccount
     @credit += 1
   end 
 
+  def check_balance
+    return @balance
+  end
+
 
 end 

@@ -47,5 +47,13 @@ describe 'BankAccount' do
       expect(bankaccount.time).to eq time
     end 
   end 
+
+  describe '#check_balance' do
+    it 'checks the account holders current balance' do
+      bankaccount.deposit(100)
+      expect(bankaccount.check_balance).to eq 2100
+    end
+  end 
+  
 end 
 
