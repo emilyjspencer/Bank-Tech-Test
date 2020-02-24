@@ -9,6 +9,7 @@ class BankAccount
   end 
 
   def withdraw_cash(amount)
+    fail "Insufficient funds - unable to withdraw" if @balance < amount
     @balance -= amount
     @debit += 1
   end 

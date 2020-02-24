@@ -23,6 +23,11 @@ describe 'BankAccount' do
       bankaccount.withdraw_cash(200)
       expect(bankaccount.debit).to eq 1
     end
+
+    it 'prevents account holder from withdrawing money when they dont have sufficient funds' do
+      bankaccount.deposit(10)
+      expect { bankaccount.withdraw_cash(3000) }.to raise_error "Insufficient funds - unable to withdraw"
+    end
   end
 
   describe '#deposit' do
