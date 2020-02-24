@@ -19,7 +19,7 @@ date       || credit || debit   || balance
 ```
 ```
 
-User Stories based on the specification
+##User Stories based on the specification##
 
 As an account holder,
 So I can top up my account balance,
@@ -38,6 +38,33 @@ So that I can successfully budget,
 I would like to be able to print a bank statement.
 
 ```
+
+```
+
+#Set up#
+
+```
+Clone my code by doing the following:
+
+$ git clone https://github.com/emilyjspencer/Bank-Tech-Test.git
+$ bundle install
+```
+
+#How to use#
+
+```
+Type 'irb' into the command line
+Require the files:
+require './lib/bankaccount'
+require './lib/statement'
+```
+#Testing#
+
+```
+Run the tests by typing
+'rspec' into the command line in the route file
+```
+
 Progress update:
 
 Currently, the BankAccount class has too many responsibilities.
