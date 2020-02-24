@@ -27,7 +27,7 @@ I would like to be able to deposit money into my account.
 
 As an account holder,
 So I can take money out of my account,
-I would like to be able to be able to withdraw money.
+I would like to be able to withdraw money.
 
 As an account holder,
 So I know how much money I have,
