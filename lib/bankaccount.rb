@@ -6,5 +6,9 @@ class BankAccount
     @balance = 2000
   end 
 
+  def withdraw_cash(amount)
+    @balance -= amount
+  end 
+
 
 end 
