@@ -18,6 +18,11 @@ describe 'BankAccount' do
       bankaccount.withdraw_cash(200)
       expect(bankaccount.balance).to eq 1800
     end
+
+    it 'states that the transaction type is debit when withdrawing cash' do
+      bankaccount.withdraw_cash(200)
+      expect(bankaccount.debit).to eq 1
+    end
   end
 
   describe '#deposit' do
