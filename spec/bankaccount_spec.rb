@@ -30,6 +30,12 @@ describe 'BankAccount' do
     bankaccount.deposit(250)
     expect(bankaccount.balance).to eq 2250
   end
+
+  it 'states that the transaction type is credit when depositing money to account' do
+    bankaccount.deposit(1000)
+    bankaccount.deposit(20)
+    expect(bankaccount.credit).to eq 2
+end 
 end 
 end 
 
