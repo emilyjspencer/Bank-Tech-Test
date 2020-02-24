@@ -37,10 +37,9 @@ class BankAccount
       print transaction  }
   end 
 
+
   def print_statement
-    @transactions.each do | transaction |
-      p transaction
-    end
+    Statement.new(@transactions).print_statement
   end 
       
   
