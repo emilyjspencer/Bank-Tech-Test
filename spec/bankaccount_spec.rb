@@ -43,9 +43,6 @@ describe 'BankAccount' do
       expect(bankaccount.credit).to eq 2
     end 
 
-    it 'inputs the date that the deposit was made' do
-      expect(bankaccount.time).to eq time
-    end 
   end 
 
   describe '#check_balance' do
@@ -62,7 +59,22 @@ describe 'BankAccount' do
       bankaccount.deposit(120)
       expect(bankaccount.transactions.length).to eq 3
     end
+
+    it 'shows all of the transactions' do
+      bankaccount.withdraw_cash(100)
+      bankaccount.deposit(2000)
+      bankaccount.deposit(100)
+      expect(bankaccount.view_transactions).to eq [-100, 2000, 100 ]
+    end 
   end 
+
+
+    describe '# print_statement' do
+        it 'prints the date, type of transaction, amount and balance after transaction when withdrawing' do
+          bankaccount.withdraw_cash(50)
+          expect(bankaccount.print_statement).to eq "date || credit || debit || balance\n#{Time.now.strftime("%d/%m/%Y")} || 0 || 50 || 1950"
+        end
+    end
 
 end 
 
