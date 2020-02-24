@@ -1,6 +1,6 @@
 class BankAccount
 
-  attr_reader :balance, :debit, :credit, :time, :transactions
+  attr_reader :balance, :transactions, :debit, :credit 
 
   def initialize
     @balance = 2000
@@ -23,6 +23,7 @@ class BankAccount
     @credit += 1
     credit = amount
     @transactions.push(amount)
+    return @depositing = "#{Time.now.strftime("%d/%m/%Y")} || #{credit} || 0 || #{check_balance}"
   end
 
   def check_balance
@@ -34,8 +35,13 @@ class BankAccount
       print transaction }
   end 
 
-  def print_statement
-    return "date || credit || debit || balance\n#{@withdrawal}"
+  def print_statement_withdrawal
+      return "date || credit || debit || balance\n#{@withdrawal}"
+  end 
+      
+      
+  def print_statement_deposit
+    return "date || credit || debit || balance\n#{@depositing}"
   end 
 
 
