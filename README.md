@@ -5,7 +5,7 @@
 This is a tech test taken during Week 10 of the Makers Academy course. 
 
 Click [here](#specification) for the specification.
-The link to the user stories (created by me based on the spefication) can be found [here](#user-stories)
+The link to the user stories (created by me based on the specification) can be found [here](#user-stories)
 
 ## Technologies & Design Principles
 
