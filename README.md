@@ -38,5 +38,10 @@ So that I can successfully budget,
 I would like to be able to print a bank statement.
 
 ```
-Possible classes:
+Progress update:
+
+Currently, the BankAccount class has too many responsibilities.
+In order to adhere to the Single Responsibility Principle, I will need to extract
+some methods out into at least one other class.
+
 
