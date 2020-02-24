@@ -39,10 +39,6 @@ class BankAccount
       return "date || credit || debit || balance\n#{@transaction_type}"
   end 
       
-      
-  #def print_statement_deposit
-    #return "date || credit || debit || balance\n#{@depositing}"
-  #end 
-
+  
 
 end 

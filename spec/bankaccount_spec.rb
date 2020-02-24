@@ -70,23 +70,14 @@ describe 'BankAccount' do
 
 
     describe '# print_statement' do
-        #it 'prints the date, type of transaction, amount and balance after transaction when withdrawing' do
-         # bankaccount.withdraw_cash(50)
-          #expect(bankaccount.print_statement_withdrawal).to eq "date || credit || debit || #balance\n#{Time.now.strftime("%d/%m/%Y")} || 0 || 50 || 1950"
-        #end
 
-        it 'prints the date, type of transaction, amount and balance after transaction when withdrawing2' do
+        it 'prints the date, type of transaction, amount and balance after transaction when withdrawing' do
           bankaccount.withdraw_cash(20)
           withdrawal = "date || credit || debit || balance\n#{Time.now.strftime("%d/%m/%Y")} || 0 || 20 || 1980" 
           expect(bankaccount.print_statement).to eq withdrawal
         end 
 
-        #it 'prints the date, type of transaction, amount and balance after transaction when depositing' do
-          #bankaccount.deposit(100)
-          #expect(bankaccount.print_statement_deposit).to eq "date || credit || debit || #balance\n#{Time.now.strftime("%d/%m/%Y")} || 100 || 0 || 2100"
-        #end 
-
-        it 'prints the date, type of transaction, amount and balance after transaction when depositing2' do
+        it 'prints the date, type of transaction, amount and balance after transaction when depositing' do
           bankaccount.deposit(20)
           deposit = "date || credit || debit || balance\n#{Time.now.strftime("%d/%m/%Y")} || 20 || 0 || 2020" 
           expect(bankaccount.print_statement).to eq deposit
