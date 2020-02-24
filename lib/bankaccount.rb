@@ -15,7 +15,7 @@ class BankAccount
     @debit += 1
     debit = amount
     @transactions.push(-amount)
-    return @withdrawal = "#{Time.now.strftime("%d/%m/%Y")} || 0 || #{debit} || #{check_balance}"
+    return @transaction_type = "#{Time.now.strftime("%d/%m/%Y")} || 0 || #{debit} || #{check_balance}"
   end 
 
   def deposit(amount)
@@ -23,7 +23,7 @@ class BankAccount
     @credit += 1
     credit = amount
     @transactions.push(amount)
-    return @depositing = "#{Time.now.strftime("%d/%m/%Y")} || #{credit} || 0 || #{check_balance}"
+    return @transaction_type = "#{Time.now.strftime("%d/%m/%Y")} || #{credit} || 0 || #{check_balance}"
   end
 
   def check_balance
@@ -35,14 +35,14 @@ class BankAccount
       print transaction }
   end 
 
-  def print_statement_withdrawal
-      return "date || credit || debit || balance\n#{@withdrawal}"
+  def print_statement
+      return "date || credit || debit || balance\n#{@transaction_type}"
   end 
       
       
-  def print_statement_deposit
-    return "date || credit || debit || balance\n#{@depositing}"
-  end 
+  #def print_statement_deposit
+    #return "date || credit || debit || balance\n#{@depositing}"
+  #end 
 
 
 end 
