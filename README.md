@@ -5,11 +5,11 @@
 This is a tech test taken during Week 10 of the Makers Academy course. 
 
 Click [here](#specification) for the specification.
-The link to the user stories (created by me based on the specification) can be found [here](#user-stories)
+The link to the user stories (created by me and based on the specification) can be found [here](#user-stories)
 
 ## Technologies & Design Principles
 
-The app has been written using the Ruby programming language and testing using the
+The app has been written using the Ruby programming language and tested using the
 RSpec testing framework.
 
 I have used a test-driven approach to create the application.
@@ -37,8 +37,8 @@ I would like to be able to print a bank statement.
 
 ## Project setup
 
-Clone my code by doing typing the following.
-Run bundle install to install dependencies.
+Clone my code by typing the following into the command line.<br>
+Run **bundle install** to install dependencies.
 
 ```
 
@@ -59,6 +59,7 @@ require './lib/statement'
 ```
 
 ## Testing
+
 Run the tests by typing the following into the command line in the main route of the folder.
 
 ```
