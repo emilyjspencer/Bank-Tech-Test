@@ -26,16 +26,16 @@ describe 'BankAccount' do
   end
 
   describe '#deposit' do
-  it 'allows the account holder to deposit money to their account' do
-    bankaccount.deposit(250)
-    expect(bankaccount.balance).to eq 2250
-  end
+    it 'allows the account holder to deposit money to their account' do
+      bankaccount.deposit(250)
+      expect(bankaccount.balance).to eq 2250
+    end
 
-  it 'states that the transaction type is credit when depositing money to account' do
-    bankaccount.deposit(1000)
-    bankaccount.deposit(20)
-    expect(bankaccount.credit).to eq 2
-end 
-end 
+    it 'states that the transaction type is credit when depositing money to account' do
+      bankaccount.deposit(1000)
+      bankaccount.deposit(20)
+      expect(bankaccount.credit).to eq 2
+    end 
+  end 
 end 
 
