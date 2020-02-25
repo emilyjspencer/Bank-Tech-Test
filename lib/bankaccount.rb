@@ -11,7 +11,7 @@ class BankAccount
 
   def withdraw_cash(amount)
     fail "Error: Insufficient funds - unable to withdraw" if insufficient_funds(amount)
-    fail "Error: Unable to withdraw a negative amount" if amount < 0
+    fail "Error: Unable to withdraw a negative amount" if negative_withdrawal(amount)
     @balance -= amount
     debit = amount
     transaction_type_debit = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{"%.2f" %debit} || #{"%.2f" %check_balance}"
@@ -21,7 +21,7 @@ class BankAccount
   end 
 
   def deposit(amount)
-    fail "Error: Unable to deposit a negative amount" if amount < 0
+    fail "Error: Unable to deposit a negative amount" if negative_deposit(amount)
     @balance += amount
     credit = amount
     transaction_type_credit= "#{Time.now.strftime("%d/%m/%Y")} || #{"%.2f" %credit} ||  || #{"%.2f" %check_balance}"
@@ -46,6 +46,14 @@ class BankAccount
 
   def insufficient_funds(amount)
     @balance < amount
+  end 
+
+  def negative_withdrawal(amount)
+    amount < 0
+  end 
+
+  def negative_deposit(amount)
+    amount < 0
   end 
       
   
