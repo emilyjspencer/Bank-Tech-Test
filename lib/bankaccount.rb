@@ -4,15 +4,12 @@ class BankAccount
 
   def initialize
     @balance = 2000
-    @debit = 0
-    @credit = 0
     @transactions = []
   end 
 
   def withdraw_cash(amount)
     fail "Insufficient funds - unable to withdraw" if insufficient_funds(amount)
     @balance -= amount
-    @debit += 1
     debit = amount
     transaction = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{"%.2f" %debit} || #{"%.2f" %check_balance}"
     @transactions.push(transaction)
@@ -21,7 +18,6 @@ class BankAccount
   def deposit(amount)
     fail "Unable to deposit a negative amount" if amount < 0
     @balance += amount
-    @credit += 1
     credit = amount
     transaction = "#{Time.now.strftime("%d/%m/%Y")} || #{"%.2f" %credit} ||  || #{"%.2f" %check_balance}"
     @transactions.push(transaction)
