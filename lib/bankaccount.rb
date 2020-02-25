@@ -10,7 +10,7 @@ class BankAccount
   end 
 
   def withdraw_cash(amount)
-    fail "Insufficient funds - unable to withdraw" if @balance < amount
+    fail "Insufficient funds - unable to withdraw" if insufficient_funds(amount)
     @balance -= amount
     @debit += 1
     debit = amount
@@ -40,6 +40,12 @@ class BankAccount
 
   def print_statement
     Statement.new(@transactions).print_statement
+  end 
+
+  private
+
+  def insufficient_funds(amount)
+    @balance < amount
   end 
       
   
