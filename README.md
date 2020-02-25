@@ -95,4 +95,8 @@ Currently, the BankAccount class has too many responsibilities.
 In order to adhere to the Single Responsibility Principle, I will need to extract
 some methods out into at least one other class.
 
+Several tests only pass on the day that the code was written, so I will need to
+stub time
+
+
 
