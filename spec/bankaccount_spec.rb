@@ -31,6 +31,10 @@ describe 'BankAccount' do
       bankaccount.deposit(250)
       expect(bankaccount.balance).to eq 2250.00
     end
+
+    it 'prevents the account holder from trying to deposit a negative amount' do
+      expect { bankaccount.deposit(-2) }.to raise_error "Unable to deposit a negative amount"
+    end 
   end 
 
   describe '#check_balance' do
