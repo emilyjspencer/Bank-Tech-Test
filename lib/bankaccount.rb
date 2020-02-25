@@ -16,7 +16,7 @@ class BankAccount
     debit = amount
     transaction_type_debit = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{"%.2f" %debit} || #{"%.2f" %check_balance}"
     @transactions.push(transaction_type_debit)
-    Transaction.new(@transactions.make_transaction(transaction_type = transaction_type_debit))
+    #Transaction.new(@transactions.make_transaction(transaction_type = transaction_type_debit))
 
   end 
 
@@ -33,7 +33,7 @@ class BankAccount
   end
 
   def view_transactions
-    @transactions.each { |transaction| 
+    @transactions.reverse_each { |transaction| 
       puts transaction  }
   end 
 

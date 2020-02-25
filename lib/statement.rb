@@ -7,7 +7,7 @@ class Statement
 
   def print_statement
     bank_statement = "date || credit || debit || balance\n"
-    @transactions.each do | transaction |
+    @transactions.reverse_each do | transaction |
       bank_statement += transaction + "\n"
     end
      bank_statement.chomp("\n")
