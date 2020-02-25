@@ -19,6 +19,7 @@ class BankAccount
   end 
 
   def deposit(amount)
+    fail "Unable to deposit a negative amount" if amount < 0
     @balance += amount
     @credit += 1
     credit = amount
