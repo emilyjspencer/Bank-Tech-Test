@@ -33,8 +33,7 @@ class BankAccount
   end
 
   def view_transactions
-    @transactions.reverse_each { |transaction| 
-      puts transaction  }
+    Statement.new(@transactions).view_transactions
   end 
 
 

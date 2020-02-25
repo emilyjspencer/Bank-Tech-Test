@@ -13,6 +13,11 @@ class Statement
      bank_statement.chomp("\n")
   end 
 
+  def view_transactions
+    @transactions.reverse_each { |transaction| 
+      puts transaction  }
+  end
+
 
 
 end 
