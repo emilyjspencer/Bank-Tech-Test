@@ -29,18 +29,6 @@ class BankAccount
     return @balance
   end
 
-  def view_transactions
-    Statement.new(@transactions_history).view_transactions
-  end 
-
-  def make_transaction(transaction_type)
-    if transaction_type == @withdrawal
-      @transactions_history.push(@withdrawal)
-    else 
-      @transactions_history.push(@deposit) 
-    end
-  end 
-
   def print_statement
     Statement.new(@transactions_history).print_statement
   end 
@@ -57,6 +45,14 @@ class BankAccount
 
   def negative_deposit(amount)
     amount < 0
+  end 
+
+  def make_transaction(transaction_type)
+    if transaction_type == @withdrawal
+      @transactions_history.push(@withdrawal)
+    else 
+      @transactions_history.push(@deposit) 
+    end
   end 
 
 
