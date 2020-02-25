@@ -7,7 +7,6 @@ describe Transaction do
 
 
   describe '#initialization' do
-
     it 'is initialized with a transactions array' do
       expect(transaction.transactions).to be_a Array
     end 
