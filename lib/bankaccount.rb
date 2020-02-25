@@ -1,31 +1,28 @@
 require_relative 'transaction'
+require_relative 'statement'
 
 class BankAccount
 
-  attr_reader :balance, :transactions
+  attr_reader :balance, :transactions_history
 
   def initialize
     @balance = 2000
-    @transactions = []
+    @transactions_history = []
   end 
 
   def withdraw_cash(amount)
     fail "Error: Insufficient funds - unable to withdraw" if insufficient_funds(amount)
     fail "Error: Unable to withdraw a negative amount" if negative_withdrawal(amount)
     @balance -= amount
-    debit = amount
-    transaction_type_debit = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{"%.2f" %debit} || #{"%.2f" %check_balance}"
-    @transactions.push(transaction_type_debit)
-    #Transaction.new(@transactions.make_transaction(transaction_type = transaction_type_debit))
-
+    @withdrawal = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{"%.2f" %amount} || #{"%.2f" %check_balance}"
+    make_transaction(transaction_type: @withdrawal) 
   end 
 
   def deposit(amount)
     fail "Error: Unable to deposit a negative amount" if negative_deposit(amount)
     @balance += amount
-    credit = amount
-    transaction_type_credit= "#{Time.now.strftime("%d/%m/%Y")} || #{"%.2f" %credit} ||  || #{"%.2f" %check_balance}"
-    @transactions.push(transaction_type_credit)
+    @deposit = "#{Time.now.strftime("%d/%m/%Y")} || #{"%.2f" %amount} ||  || #{"%.2f" %check_balance}"
+    make_transaction(transaction_type: @deposit)
   end
 
   def check_balance
@@ -33,12 +30,19 @@ class BankAccount
   end
 
   def view_transactions
-    Statement.new(@transactions).view_transactions
+    Statement.new(@transactions_history).view_transactions
   end 
 
+  def make_transaction(transaction_type)
+    if transaction_type == @withdrawal
+      @transactions_history.push(@withdrawal)
+    else 
+      @transactions_history.push(@deposit) 
+    end
+  end 
 
   def print_statement
-    Statement.new(@transactions).print_statement
+    Statement.new(@transactions_history).print_statement
   end 
 
   private
@@ -54,6 +58,9 @@ class BankAccount
   def negative_deposit(amount)
     amount < 0
   end 
+
+
+  
       
   
 

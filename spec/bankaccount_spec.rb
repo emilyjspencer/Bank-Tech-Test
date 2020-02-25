@@ -48,23 +48,6 @@ describe 'BankAccount' do
     end
   end 
 
-  describe '#transactions' do
-    it 'shows the total number of transactions made' do
-      bankaccount.withdraw_cash(20)
-      bankaccount.deposit(200)
-      bankaccount.deposit(120)
-      expect(bankaccount.transactions.length).to eq 3
-    end
-
-    it 'shows all of the transactions' do
-      bankaccount.withdraw_cash(100)
-      bankaccount.deposit(2000)
-      bankaccount.deposit(100)
-      expect(bankaccount.view_transactions).to eq ["#{time} ||  || 100.00 || 1900.00", "#{time} || 2000.00 ||  || 3900.00", "#{time} || 100.00 ||  || 4000.00"]
-    end 
-  end 
-
-
     describe '#print_statement' do
       it 'prints the date, type of transaction, amount and balance after transaction when withdrawing' do
         bankaccount.withdraw_cash(20)
