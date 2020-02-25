@@ -1,6 +1,6 @@
 class BankAccount
 
-  attr_reader :balance, :transactions, :debit, :credit 
+  attr_reader :balance, :transactions
 
   def initialize
     @balance = 2000
