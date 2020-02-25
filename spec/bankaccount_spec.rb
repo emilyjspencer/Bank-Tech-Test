@@ -22,8 +22,12 @@ describe 'BankAccount' do
 
     it 'prevents account holder from withdrawing money when they dont have sufficient funds' do
       bankaccount.deposit(10)
-      expect { bankaccount.withdraw_cash(3000) }.to raise_error "Insufficient funds - unable to withdraw"
+      expect { bankaccount.withdraw_cash(3000) }.to raise_error "Error: Insufficient funds - unable to withdraw"
     end
+
+    it 'prevents account holder from withdrawing a negative amount' do
+      expect { bankaccount.withdraw_cash(-2) }.to raise_error "Error: Unable to withdraw a negative amount"
+    end 
   end
 
   describe '#deposit' do
@@ -33,7 +37,7 @@ describe 'BankAccount' do
     end
 
     it 'prevents the account holder from trying to deposit a negative amount' do
-      expect { bankaccount.deposit(-2) }.to raise_error "Unable to deposit a negative amount"
+      expect { bankaccount.deposit(-2) }.to raise_error "Error: Unable to deposit a negative amount"
     end 
   end 
 

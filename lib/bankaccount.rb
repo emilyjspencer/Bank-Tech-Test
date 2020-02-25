@@ -1,3 +1,5 @@
+require_relative 'transaction'
+
 class BankAccount
 
   attr_reader :balance, :transactions
@@ -8,16 +10,18 @@ class BankAccount
   end 
 
   def withdraw_cash(amount)
-    fail "Insufficient funds - unable to withdraw" if insufficient_funds(amount)
+    fail "Error: Insufficient funds - unable to withdraw" if insufficient_funds(amount)
+    fail "Error: Unable to withdraw a negative amount" if amount < 0
     @balance -= amount
     debit = amount
     transaction_type_debit = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{"%.2f" %debit} || #{"%.2f" %check_balance}"
     @transactions.push(transaction_type_debit)
+    Transaction.new(@transactions.make_transaction(transaction_type = transaction_type_debit))
 
   end 
 
   def deposit(amount)
-    fail "Unable to deposit a negative amount" if amount < 0
+    fail "Error: Unable to deposit a negative amount" if amount < 0
     @balance += amount
     credit = amount
     transaction_type_credit= "#{Time.now.strftime("%d/%m/%Y")} || #{"%.2f" %credit} ||  || #{"%.2f" %check_balance}"
