@@ -14,18 +14,18 @@ class BankAccount
     @balance -= amount
     @debit += 1
     debit = amount
-    transaction = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{debit} || #{check_balance}"
+    transaction = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{"%.2f" %debit} || #{"%.2f" %check_balance}"
     @transactions.push(transaction)
-    return @transaction = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{debit} || #{check_balance}"
+    return @transaction = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{"%.2f" %debit} || #{"%.2f" %check_balance}"
   end 
 
   def deposit(amount)
     @balance += amount
     @credit += 1
     credit = amount
-    transaction = "#{Time.now.strftime("%d/%m/%Y")} || #{credit} ||  || #{check_balance}"
+    transaction = "#{Time.now.strftime("%d/%m/%Y")} || #{"%.2f" %credit} ||  || #{"%.2f" %check_balance}"
     @transactions.push(transaction)
-    return @transaction = "#{Time.now.strftime("%d/%m/%Y")} || #{credit} ||  || #{check_balance}"
+    return @transaction = "#{Time.now.strftime("%d/%m/%Y")} || #{"%.2f" %credit} ||  || #{"%.2f" %check_balance}"
   end
 
   def check_balance
