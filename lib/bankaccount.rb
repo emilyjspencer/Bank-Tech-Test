@@ -16,7 +16,6 @@ class BankAccount
     debit = amount
     transaction = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{"%.2f" %debit} || #{"%.2f" %check_balance}"
     @transactions.push(transaction)
-    return @transaction = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{"%.2f" %debit} || #{"%.2f" %check_balance}"
   end 
 
   def deposit(amount)
@@ -25,7 +24,6 @@ class BankAccount
     credit = amount
     transaction = "#{Time.now.strftime("%d/%m/%Y")} || #{"%.2f" %credit} ||  || #{"%.2f" %check_balance}"
     @transactions.push(transaction)
-    return @transaction = "#{Time.now.strftime("%d/%m/%Y")} || #{"%.2f" %credit} ||  || #{"%.2f" %check_balance}"
   end
 
   def check_balance
@@ -34,7 +32,7 @@ class BankAccount
 
   def view_transactions
     @transactions.each { |transaction| 
-      print transaction  }
+      puts transaction  }
   end 
 
 

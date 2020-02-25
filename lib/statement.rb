@@ -10,7 +10,7 @@ class Statement
     @transactions.each do | transaction |
       bank_statement += transaction + "\n"
     end
-    bank_statement.chomp("\n")
+    puts bank_statement.chomp("\n")
   end 
 
 
