@@ -31,8 +31,20 @@ class BankAccount
     return @balance
   end
 
-  def print_statement # delegates responsibility to Statement class 
+  def print_statement 
     Statement.new(@transactions_history).print_statement
+  end 
+
+  def format_amount(amount) 
+    Statement.new(@transactions_history).format_amount(amount)
+  end 
+
+  def format_time(time) 
+    Statement.new(@transactions_history).format_time(time)
+  end 
+
+  def format_balance(check_balance) 
+    Statement.new(@transactions_history).format_balance(check_balance)
   end 
 
 
@@ -46,18 +58,7 @@ class BankAccount
     end
   end
 
-  def format_amount(amount)
-    return "#{"%.2f" %amount}" 
-  end 
-
-  def format_time(time)
-    time = Time.now.strftime("%d/%m/%Y")
-    return time
-  end 
-
-  def format_balance(check_balance)
-    return "#{"%.2f" %check_balance}"
-  end 
+  
   
   def insufficient_funds(amount)
     @balance < amount
