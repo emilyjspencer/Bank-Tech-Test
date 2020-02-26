@@ -1,12 +1,14 @@
 require_relative 'transaction'
 require_relative 'statement'
+require 'time'
 
 class BankAccount
 
-  attr_reader :balance, :transactions_history
+  attr_reader :balance, :transactions_history, :time
 
   def initialize
     @balance = 2000
+    time = Time.now.strftime("%d/%m/%Y")
     @transactions_history = []
   end 
 
@@ -14,14 +16,14 @@ class BankAccount
     fail "Error: Insufficient funds - unable to withdraw" if insufficient_funds(amount)
     fail "Error: Unable to withdraw a negative amount" if negative_withdrawal(amount)
     @balance -= amount
-    @withdrawal = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{format_amount(amount)} || #{"%.2f" %check_balance}"
+    @withdrawal = "#{format_time(time)} ||  || #{format_amount(amount)} || #{"%.2f" %check_balance}"
     make_transaction(@withdrawal)
   end 
 
   def deposit(amount)
     fail "Error: Unable to deposit a negative amount" if negative_deposit(amount)
     @balance += amount
-    @deposit = "#{Time.now.strftime("%d/%m/%Y")} || #{format_amount(amount)} ||  || #{"%.2f" %check_balance}"
+    @deposit = "#{format_time(time)} || #{format_amount(amount)} ||  || #{"%.2f" %check_balance}"
     make_transaction(@deposit)
   end
 
@@ -47,6 +49,11 @@ class BankAccount
   def format_amount(amount)
     return "#{"%.2f" %amount}" 
   end 
+
+  def format_time(time)
+    time = Time.now.strftime("%d/%m/%Y")
+    return time
+  end 
   
   def insufficient_funds(amount)
     @balance < amount
@@ -59,14 +66,5 @@ class BankAccount
   def negative_deposit(amount)
     amount < 0
   end 
-
-
-
-  
-
-
-  
-      
-  
 
 end 
