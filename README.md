@@ -91,12 +91,11 @@ date || credit || debit || balance
 
 Progress update:
 
-Currently, the BankAccount class has too many responsibilities.
-In order to adhere to the Single Responsibility Principle, I will need to extract
-some methods out into at least one other class.
+At present:
 
-Several tests only pass on the day that the code was written, so I will need to
-stub time
+11 examples, 0 failures
+
+COVERAGE: 100.00% -- 115/115 lines in 6 files
 
 
 
