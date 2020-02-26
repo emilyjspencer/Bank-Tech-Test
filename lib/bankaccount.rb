@@ -14,14 +14,14 @@ class BankAccount
     fail "Error: Insufficient funds - unable to withdraw" if insufficient_funds(amount)
     fail "Error: Unable to withdraw a negative amount" if negative_withdrawal(amount)
     @balance -= amount
-    @withdrawal = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{"%.2f" %amount} || #{"%.2f" %check_balance}"
+    @withdrawal = "#{Time.now.strftime("%d/%m/%Y")} ||  || #{format_amount(amount)} || #{"%.2f" %check_balance}"
     make_transaction(@withdrawal)
   end 
 
   def deposit(amount)
     fail "Error: Unable to deposit a negative amount" if negative_deposit(amount)
     @balance += amount
-    @deposit = "#{Time.now.strftime("%d/%m/%Y")} || #{"%.2f" %amount} ||  || #{"%.2f" %check_balance}"
+    @deposit = "#{Time.now.strftime("%d/%m/%Y")} || #{format_amount(amount)} ||  || #{"%.2f" %check_balance}"
     make_transaction(@deposit)
   end
 
@@ -29,9 +29,10 @@ class BankAccount
     return @balance
   end
 
-  def print_statement
+  def print_statement # delegates responsibility to Statement class 
     Statement.new(@transactions_history).print_statement
   end 
+
 
   private
 
@@ -42,6 +43,10 @@ class BankAccount
       @transactions_history.push(@withdrawal)
     end
   end
+
+  def format_amount(amount)
+    return "#{"%.2f" %amount}" 
+  end 
   
   def insufficient_funds(amount)
     @balance < amount
