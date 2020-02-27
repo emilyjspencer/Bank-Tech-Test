@@ -13,15 +13,6 @@ require 'time'
 
       def initialize
         @transactions_history = []
-        #@transactions = []
-      end
-
-      def make_transaction(transaction_type)
-        if transaction_type == @deposit
-         @transactions_history.push(@deposit)
-        else transaction_type == @withdrawal
-          @transactions_history.push(@withdrawal)
-        end
       end
     
     end

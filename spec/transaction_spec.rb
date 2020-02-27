@@ -13,7 +13,16 @@ describe 'Transaction' do
       expect(transaction.transactions_history).to eq transactions_history
     end
 
+<<<<<<< HEAD
   
+=======
+  describe '#initialization' do
+    it 'is initialized with a transactions array' do
+      expect(transaction.transactions_history).to be_a Array
+    end 
+
+   
+>>>>>>> e5d48b46605891800fcc6bedc71571377822c0e6
   end
 
 
