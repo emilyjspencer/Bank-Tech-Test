@@ -54,7 +54,7 @@ Require the files:
 
 ```
 require './lib/bankaccount'
-require './lib/statement'
+
 
 ```
 
@@ -89,13 +89,7 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
-Progress update:
 
-At present:
-
-11 examples, 0 failures
-
-COVERAGE: 100.00% -- 115/115 lines in 6 files
 
 
 
