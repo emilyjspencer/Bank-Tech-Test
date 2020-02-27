@@ -3,10 +3,6 @@ require 'bankaccount'
 describe 'BankAccount' do
   let(:bankaccount) { BankAccount.new }
   let(:time) {Time.now.strftime("%d/%m/%Y")}
-
-  before(:each) do
-    bankaccount = BankAccount.new
-  end 
   
   describe '#initialize' do
     it 'initializes with a balance of 2000' do

@@ -9,7 +9,9 @@ class BankAccount
   def initialize
     @balance = 2000
     time = Time.now.strftime("%d/%m/%Y")
-    @transactions_history = []
+    #@transactions_history = []
+    @transaction = Transaction.new
+    @statement = Statement.new
   end 
 
   def withdraw_cash(amount)
@@ -17,14 +19,18 @@ class BankAccount
     fail "Error: Unable to withdraw a negative amount" if negative_withdrawal(amount)
     @balance -= amount
     @withdrawal = "#{format_time(time)} ||  || #{format_amount(amount)} || #{format_balance(check_balance)}"
-    make_transaction(@withdrawal)
+    #make_transaction(@withdrawal)
+    #Transaction.new(@transactions_history).make_transaction(@withdrawal)
+    @transaction.make_transaction(@withdrawal)
   end 
 
   def deposit(amount)
     fail "Error: Unable to deposit a negative amount" if negative_deposit(amount)
     @balance += amount
     @deposit = "#{format_time(time)} || #{format_amount(amount)} ||  || #{format_balance(check_balance)}"
-    make_transaction(@deposit)
+    #make_transaction(@deposit)
+    #Transaction.new(@transactions_history).make_transaction(@deposit)
+    @transaction.make_transaction(@deposit)
   end
 
   def check_balance
@@ -32,34 +38,34 @@ class BankAccount
   end
 
   def print_statement 
-    Statement.new(@transactions_history).print_statement
+    @statement.print_statement
+    #Statement.new(@transactions_history).print_statement
   end 
 
   def format_amount(amount) 
-    Statement.new(@transactions_history).format_amount(amount)
+    @statement.format_amount(amount)
+    #Statement.new(@transactions_history).format_amount(amount)
   end 
 
-  def format_time(time) 
-    Statement.new(@transactions_history).format_time(time)
+  def format_time(time)
+    @statement.format_time(time) 
+    #Statement.new(@transactions_history).format_time(time)
   end 
 
-  def format_balance(check_balance) 
-    Statement.new(@transactions_history).format_balance(check_balance)
+  def format_balance(check_balance)
+    @statement.format_balance(check_balance)
+    #Statement.new(@transactions_history).format_balance(check_balance)
   end 
-
 
   private
 
-  def make_transaction(transaction_type)
-    if transaction_type == @deposit
-      @transactions_history.push(@deposit)
-    elsif transaction_type == @withdrawal
-      @transactions_history.push(@withdrawal)
-    end
-  end
+  #def make_transaction(transaction_type)
+    #if transaction_type == @deposit
+     # @transactions_history.push(@deposit)
+    #elsif transaction_type == @withdrawal
+     # @transactions_history.push(@withdrawal)
+  #end
 
-  
-  
   def insufficient_funds(amount)
     @balance < amount
   end 

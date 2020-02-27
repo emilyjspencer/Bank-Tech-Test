@@ -3,9 +3,13 @@ require 'time'
 class Statement
 
   attr_reader :transactions_history
+  
+  #def initialize(transactions_history)
+    #@transactions_history = transactions_history
+  #end 
 
-  def initialize(transactions_history)
-    @transactions_history = transactions_history
+  def initialize
+    @transactions_history = []
   end 
 
   def print_statement
@@ -28,8 +32,4 @@ class Statement
   def format_balance(check_balance)
     return "#{"%.2f" %check_balance}"
   end 
-
-
-
-
 end 
